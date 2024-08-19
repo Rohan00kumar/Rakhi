@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #782081 0%, #510b14 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Itim', cursive;
+}
+
+/* Card styling */
+.card-container {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 71, 91, 0.9);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+}
+
+.card .wishes h3 {
+    margin-top: 30%;
+    font-family: 'Girassol', cursive;
+    color:  linear-gradient(135deg, #782081 0%, #7e6a6d 100%);
+}
+
+.card-container:hover .card {
+    transform: rotateY(180deg);
+}
+
+/* Emoji rain styling */
+.emoji-rain .emoji {
+    position: absolute;
+    font-size: 30px;
+    animation: float 4s ease-in-out infinite, bounce 10s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Positioning each emoji at random spots */
+#ele1 { top: 10%; left: 20%; animation-delay: 0s; }
+#ele2 { top: 20%; left: 40%; animation-delay: 1s; }
+#ele3 { top: 30%; left: 60%; animation-delay: 2s; }
+#ele4 { top: 40%; left: 80%; animation-delay: 3s; }
+#ele5 { top: 50%; left: 10%; animation-delay: 4s; }
+#ele6 { top: 60%; left: 30%; animation-delay: 5s; }
+#ele7 { top: 70%; left: 50%; animation-delay: 6s; }
+#ele8 { top: 80%; left: 70%; animation-delay: 7s; }
+#ele9 { top: 90%; left: 90%; animation-delay: 8s; }
+#ele10 { top: 5%; left: 85%; animation-delay: 9s; }
+#ele11 { top: 15%; left: 65%; animation-delay: 10s; }
+#ele12 { top: 25%; left: 45%; animation-delay: 11s; }
+
+/* Animation for the floating and bouncing effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(-100vh); opacity: 0; }
+    60% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Rain and flash effects */
+.rain {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    animation: rain 10s linear infinite;
+}
+
+@keyframes rain {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 20% 100%; }
+}
+
+.dom {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #250e0e;
+    opacity: 0;
+    animation: flash 5s linear infinite;
+}
+
+@keyframes flash {
+    0% { opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0; }
+}
